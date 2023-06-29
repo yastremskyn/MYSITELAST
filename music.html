@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Player</title>
+</head>
+<body>
+
+<div id="root"></div>
+<a target="_blank" title="instagram/web__addict" href="https://www.instagram.com/web__addict/"><i class="fab fa-instagram"></i></a>
+<canvas id="cnv"></canvas>
+
+
+
+
+
+
+<style>
+    .music-image {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+    }
+</style>
+
+
+
+
+
+<img class="music-image" src="img/dr-dre-turns.jpg" alt="Картинка" onclick="playMusic()">
+<audio id="myAudio">
+    <source src="song.mp3"  type="audio/mpeg">
+</audio>
+
+<script>
+    function playMusic() {
+        var audio = document.getElementById("myAudio");
+        if (audio.paused) {
+            audio.play();
+            audio.volume=0.2;
+        } else {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var audio= new Audio('song.mp3');
+</script>
+
+
+
+<style>
+    .music-image {left:382px;
+        top:353px;
+        position: absolute;
+        opacity: 1;
+        animation: animKot 3s linear infinite;
+        transform-origin: center center;
+    }
+
+    @keyframes animKot{
+        25% {transform: rotate(8deg);opacity: 0;}
+        50% {transform: rotate(-8deg);opacity: 1;}
+        75% {transform: rotate(8deg);opacity: 0;}
+        100% {transform: rotate(0deg);opacity: 1;}
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+<style>
+    .music-image1 {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+    }
+</style>
+
+
+
+
+
+<img class="music-image1" src="losha.png" alt="Картинка" onclick="playMusic1()">
+<audio id="myAudio1">
+    <source src="tokyo.mp3"  type="audio/mpeg">
+</audio>
+
+<script>
+    function playMusic1() {
+        var audio1 = document.getElementById("myAudio1");
+        if (audio1.paused) {
+            audio1.play();
+            audio1.volume=0.2;
+        } else {
+            audio1.pause();
+            audio1.currentTime = 0;
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    var audio1= new Audio('tokyo.mp3');
+</script>
+
+
+
+<style>
+    .music-image1 {
+        top:353px;
+        left: 1000px;
+        position: absolute;
+        opacity: 1;
+        animation: animKot1 3s linear infinite;
+        transform-origin: center center;
+    }
+
+    @keyframes animKot1{
+        25% {transform: rotate(8deg);opacity: 0;}
+        50% {transform: rotate(-8deg);opacity: 1;}
+        75% {transform: rotate(8deg);opacity: 0;}
+        100% {transform: rotate(0deg);opacity: 1;}
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  //Get context and screen size;
+  var ctx = cnv.getContext("2d");
+  var W = window.innerWidth;
+  var H = window.innerHeight;
+
+  //Set Canvas and Background Color;
+  cnv.width = W;
+  cnv.height = H;
+  ctx.fillStyle = "#112";
+  ctx.fillRect(0, 0, W, H);
+
+  //Glow effect;
+  ctx.shadowBlur = 10;
+  ctx.shadowColor = "white";
+
+  function animate() {
+    //Random position and size of stars;
+    let x = W * Math.random();
+    let y = H * Math.random();
+    let r = 2.5 * Math.random();
+
+    //Draw the stars;
+    ctx.beginPath();
+    ctx.fillStyle = "white";
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fill();
+
+    //Using setTimeout instead of window.requestAnimationFrame for slower speed... window.requestAnimationFrame is approximately equal to setTimeout(func, 17);
+    setTimeout(animate, 100);
+  }
+  animate();
+
+</script>
+
+</body>
+</html>

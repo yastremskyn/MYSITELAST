@@ -1,0 +1,68 @@
+<?php
+session_start();
+require 'src/auth.html';
+require 'subscription.php';
+// Авторизуємо користувача, якщо в запиті є логін і пароль
+if (isset($_POST['login']) && isset($_POST['password'])) {
+ login($_POST['login'], $_POST['password']);
+}
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>Sign in</title>
+    <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="vh-100">
+
+
+
+<form>
+<div class="backs">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="login" class="form-control" id="exampleInputEmail1" aria-describedby="login">
+        <small id="emailHelp" class="form-text text-muted"></small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php if (isAuthorized()): ?>
+<?php require 'views/admin.php' ?>
+<?php else: ?>
+<?php require 'views/login.php' ?>
+<?php endif; ?>
+</body>
+</html>
